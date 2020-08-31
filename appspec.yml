@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /usr/cddemo
+hooks:
+  BeforeInstall:
+    - location: script/before_install.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: script/after_install.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: script/app_start.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: script/app_stop.sh
+      timeout: 300
+      runas: root
